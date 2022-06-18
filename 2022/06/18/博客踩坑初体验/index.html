@@ -494,6 +494,16 @@
 <p>参考：(62条消息) Git报错解决：fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/.......%E2%80%98">https://github.com/.......‘</a>: OpenSSL SSL_read: Connection was reset_盏茶作酒的博客-CSDN博客](<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40999917/article/details/116213557">https://blog.csdn.net/qq_40999917/article/details/116213557</a>)</p>
 <h4 id="2-4-config-yml中的编辑"><a href="#2-4-config-yml中的编辑" class="headerlink" title="2.4  _config.yml中的编辑"></a>2.4  _config.yml中的编辑</h4><p>在进行自定义时，有些是在根目录下的_config.yml中编辑才生效，有些则是在主题目录下的_config.yml中编辑才生效。而且尽量不要两个地方都自定义，很容易发生报错。因为Hexo是可以换主题的，有模块化的思想。比如博客中Subtitles有一个值，要是写到根目录下config中，即使换了一个主题，主题的config也能接收到值。相反，要是只写在主题目录下的config中，换了主题文件过后，值就不见了。</p>
 <h3 id="后期完善"><a href="#后期完善" class="headerlink" title="后期完善"></a>后期完善</h3><p>hexo还有很多个性玩法，可以参考： <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43827595/article/details/104324443">(62条消息) hexo博客matery主题个性化配置_白马金羁侠少年的博客-CSDN博客_matery</a></p>
+<h3 id="hexo从github上克隆到本地"><a href="#hexo从github上克隆到本地" class="headerlink" title="hexo从github上克隆到本地"></a>hexo从github上克隆到本地</h3><p>如果以后要迁移（保不准哪天就重装系统了）</p>
+<ul>
+<li>安装HEXO，npm install -g hexo-cli</li>
+<li>克隆github上的源文件，git clone ‘仓库地址’</li>
+<li>生成缺少的文件，npm install （因为上传git时有.gitignore，github上没存node_modules等依赖包）<ul>
+<li>npm install hexo-deployer-git –save</li>
+</ul>
+</li>
+<li>生成、部署 hexo g         hexo d</li>
+</ul>
 
                 
             </div>
