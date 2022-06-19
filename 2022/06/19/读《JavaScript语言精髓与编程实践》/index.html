@@ -560,6 +560,35 @@
 <td align="center">基于原型继承与类继承的面向对象模型</td>
 </tr>
 </tbody></table>
+<h4 id="原子对象类型系统"><a href="#原子对象类型系统" class="headerlink" title="原子对象类型系统"></a>原子对象类型系统</h4><p>ES中Null是一个类型，且有一个唯一值；而在JS中null是对象类型的一个特殊实例。</p>
+<p>ES语言类型中没有函数类型，函数是对象类型的一个变体，（对象类型的一种实现）；而JS中函数是第一类型（Frist class type）。ES的这种定义方便了规范制定。由于Null是特殊的、在语言层面就被解释的，所以经常用Null来识别各种结构、定义、和逻辑。</p>
+<h4 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h4><h6 id="显式声明"><a href="#显式声明" class="headerlink" title="显式声明"></a>显式声明</h6><p>用关键字事先声明类型，例如var number &#x3D; 10;</p>
+<h6 id="隐式声明"><a href="#隐式声明" class="headerlink" title="隐式声明"></a>隐式声明</h6><p>未提前声明而直接用语句，例如 number &#x3D; 10;</p>
+<h5 id="let-与-var-的区别"><a href="#let-与-var-的区别" class="headerlink" title="let 与 var 的区别"></a>let 与 var 的区别</h5><p>很多情况下JS编程都是机械式地用var，好像Var能包容万物一般。的确var（variable-可变物）就是用来代替任何类型的。但是var也有它做不到的地方。</p>
+<ul>
+<li><p>var声明的变量，其作⽤域为当前函数、模块或全局；let声明的变量，其作⽤域总是在当前的代码块，例如语句块。 </p>
+</li>
+<li><p>在同⼀个代码块中，可以⽤var来多次声明变量名，这在语法分析中与声明⼀次没有区别；⽽⽤let却只能声明一次，覆盖⼀个已经声明的let变量（或者⽤let去覆盖⼀个已声明过的标识符）会导致语法错误。 </p>
+</li>
+<li><p>⽤⼾代码可以在声明语句之前使⽤所声明的var变量，这时该变量的值是undefined；⽽let声明的变量必须先声明后使⽤，声明语句之前的代码引⽤了let变量会触发异常，这也会导致typeof成为⼀个不安全的运算</p>
+</li>
+</ul>
+<p>在全局代码块上</p>
+<table>
+<thead>
+<tr>
+<th align="left">let（const、class类似）</th>
+<th align="left">var</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">遵从“块级作⽤域”规则，因此即使出现在全局代码块中也只是声明为“全局作用域”中的标识符，而不是全局对象global上的属性</td>
+<td align="left">相当于在全局对象global上声明了⼀个属性，进⽽使所有代码都能将这些声明作为全局变量来访问</td>
+</tr>
+</tbody></table>
+<h5 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h5><p>var [x,y] &#x3D; [1,2]        	&#x2F;&#x2F;数组结构赋值</p>
+<p>let{clientHeight: height , clientWidth: width}   &#x3D; window.document.body;            &#x2F;&#x2F;使用对象解构赋值</p>
+<h4 id="表达式运算"><a href="#表达式运算" class="headerlink" title="表达式运算"></a>表达式运算</h4><p><strong>逻辑运算中</strong>不强制运算结果的数据类型。但是运算符会将操作数隐式地转换为布尔类型，并且支持布尔短路（<em>如果一个布尔运算表达式能提前确定结果，就不进行后续的运算，直接返回结果</em>）</p>
 
                 
             </div>
