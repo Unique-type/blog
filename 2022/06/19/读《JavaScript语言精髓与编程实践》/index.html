@@ -639,6 +639,13 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo(100,...[3,2])//把数组中的3，2作为参数依次传入</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p><strong>面向表达式的运算符</strong>    <em>await</em> <em>yield</em></p>
+<h4 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h4><p>一般表达式语句、赋值语句与隐式语句、函数调用语句、变量声明语句、分支语句、循环语句、一般子句</p>
+<blockquote>
+<p>需要注意赋值语句具有隐式声明变量的作用：一个变量在赋值前未被声明，则脚本会首先隐式地声明该变量，然后完成赋值。这种情况下，隐式声明的变量总是<em><strong>全局变量</strong></em>。所以它相当于是<u><em>从局部变量泄露到了全局</em></u>，在严格模式下，这种像未声明变量赋值的操作是被禁止的。</p>
+</blockquote>
+<h4 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h4><p>即使一个JS文件没有export语句，它也可以被其他文件作为模块导入，JS会为其创建一个空的导出名字表。所以<em>“用export语句来表明自己是模块”</em>和<em>“普通文件被作为模块加载”</em>两种情况在ES看来没有区别</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//简单装载</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;module-name&quot;</span> ;</span><br><span class="line"><span class="comment">//命名导入</span></span><br><span class="line"><span class="keyword">import</span> defaultExport <span class="keyword">from</span> <span class="string">&quot;module-name&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;importsList&#125; <span class="keyword">from</span> <span class="string">&quot;module-name&quot;</span>;</span><br><span class="line"><span class="comment">//名字空间导入</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> aNamespace <span class="keyword">from</span> <span class="string">&quot;module-name&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//默认导入的扩展形式</span></span><br><span class="line"><span class="keyword">import</span> defaultExport, ...<span class="keyword">from</span> <span class="string">&quot;module-name&quot;</span>;</span><br></pre></td></tr></table></figure>
+
 
                 
             </div>
