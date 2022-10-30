@@ -19,6 +19,46 @@
 ]]></content>
   </entry>
   <entry>
+    <title>博客踩坑初体验</title>
+    <url>/2022/06/18/%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<p>​	大概一年前就有过写个人博客的想法，但是因为各种原因一直没有落实。写博客是一件非常有意思的事情，当时的想法是——可以，但没必要。现在放假有时间了，而且假期有自学安排，也是打算通过写博客的方式来记录和总结自身所学。</p>
+<h3 id="博客的动态和静态之分"><a href="#博客的动态和静态之分" class="headerlink" title="博客的动态和静态之分"></a>博客的动态和静态之分</h3><h4 id="1-1-静态博客"><a href="#1-1-静态博客" class="headerlink" title="1.1 静态博客"></a>1.1 静态博客</h4><p>HTML（超文本标记语言）格式的网页通常被称为静态网页，是直接渲染生成HTML标准的文件呈现给客户端，不需要数据库的支持。静态博客也可以包含文本、声音、图像等。</p>
+<h4 id="1-2-动态博客"><a href="#1-2-动态博客" class="headerlink" title="1.2 动态博客"></a>1.2 动态博客</h4><p>动态是网页通过动态调用再解析而成的，生产的网页不是HTML文件，需要服务器端伪装成HTML文件呈现给客户端。&gt; 这里的<em><strong>动</strong></em>是指与后台数据库的交互，进行数据传递的过程。</p>
+<p><em>我的理解就是，静态的只能展示自己本地上传的东西。动态的可以有用户注册，评论等功能。当然，现在有各种第三方插件支持，静态的博客也可以通过插件做到互动等功能。不过现在静态博客已经够我用作记录和总结的用途了。</em></p>
+<h3 id="踩到的坑"><a href="#踩到的坑" class="headerlink" title="踩到的坑"></a>踩到的坑</h3><h4 id="2-1-Node-js的版本问题"><a href="#2-1-Node-js的版本问题" class="headerlink" title="2.1 Node.js的版本问题"></a>2.1 Node.js的版本问题</h4><p>node.js的版本依赖一直都是个坑。就我目前在各种项目搭建时遇到的坑里面（之前用Vue框架的项目也是），大概三分之一都跟node的版本依赖有关系！！！就是这么绝…… 以至于现在养成一个习惯，搭建过程中遇到看不懂的错误。先去百度一下，看看要求的Node版本（有用到的话），再看看你的版本。或许问题就迎刃而解了~  </p>
+<p>这里推荐下一个NVM（一个Node版本管理工具，可以简单操作Node版本的安装、查看、切换等），有了这个工具，在需要不同的Node版本环境时，就可以随时切换了还是很方便滴👍</p>
+<p>Hexo现在要求的Node是14，我本来的Node是16。版本过高所以不行，然后我又去下了一个10版本的Node。想着这肯定很稳定吧，然而！版本又太低了。还真得精确到个位啊……</p>
+<h4 id="2-2-Hexo-start-4000端口无法访问"><a href="#2-2-Hexo-start-4000端口无法访问" class="headerlink" title="2.2 Hexo start 4000端口无法访问"></a>2.2 Hexo start 4000端口无法访问</h4><p>这个网上一搜有很多原因，主要有</p>
+<ol>
+<li><p>下了福昕PDF阅读器，这个阅读器的默认端口号也是4000。关掉这个进程或者另外给hexo设置一个端口号就行。<em>自定义端口的命令是 hexo server -p 5000</em>（参数自定）</p>
+</li>
+<li><p>服务器的4000端口没有对外开放，参考<a href="https://blog.csdn.net/weixin_59248227/article/details/123776619">(62条消息) 解决hexo在服务器上成功运行后，4000端口无法访问的问题_DO VIS69的博客-CSDN博客_4000端口</a></p>
+</li>
+</ol>
+<h4 id="2-3-git-部署错误"><a href="#2-3-git-部署错误" class="headerlink" title="2.3 git 部署错误"></a>2.3 git 部署错误</h4><p>git  fatal: unable to access ‘<a href="https://github.com/Unique-type/blog.git/&#39;">https://github.com/Unique-type/blog.git/&#39;</a>: OpenSSL SSL_read: Connection was aborted, errno 10053   不能正常访问用git 访问github仓库，原因  服务器SSL证书没有通过 关掉就好</p>
+<p>用指令git config –global http.sslVerify “false”</p>
+<p>参考：(62条消息) Git报错解决：fatal: unable to access ‘<a href="https://github.com/.......%E2%80%98">https://github.com/.......‘</a>: OpenSSL SSL_read: Connection was reset_盏茶作酒的博客-CSDN博客](<a href="https://blog.csdn.net/qq_40999917/article/details/116213557">https://blog.csdn.net/qq_40999917/article/details/116213557</a>)</p>
+<h4 id="2-4-config-yml中的编辑"><a href="#2-4-config-yml中的编辑" class="headerlink" title="2.4  _config.yml中的编辑"></a>2.4  _config.yml中的编辑</h4><p>在进行自定义时，有些是在根目录下的_config.yml中编辑才生效，有些则是在主题目录下的_config.yml中编辑才生效。而且尽量不要两个地方都自定义，很容易发生报错。因为Hexo是可以换主题的，有模块化的思想。比如博客中Subtitles有一个值，要是写到根目录下config中，即使换了一个主题，主题的config也能接收到值。相反，要是只写在主题目录下的config中，换了主题文件过后，值就不见了。</p>
+<h3 id="后期完善"><a href="#后期完善" class="headerlink" title="后期完善"></a>后期完善</h3><p>hexo还有很多个性玩法，可以参考： <a href="https://blog.csdn.net/qq_43827595/article/details/104324443">(62条消息) hexo博客matery主题个性化配置_白马金羁侠少年的博客-CSDN博客_matery</a></p>
+<h3 id="hexo从github上克隆到本地"><a href="#hexo从github上克隆到本地" class="headerlink" title="hexo从github上克隆到本地"></a>hexo从github上克隆到本地</h3><p>如果以后要迁移（保不准哪天就重装系统了）</p>
+<ul>
+<li>安装HEXO，npm install -g hexo-cli</li>
+<li>克隆github上的源文件，git clone ‘仓库地址’</li>
+<li>生成缺少的文件，npm install （因为上传git时有.gitignore，github上没存node_modules等依赖包）<ul>
+<li>npm install hexo-deployer-git –save</li>
+</ul>
+</li>
+<li>生成、部署 hexo g         hexo d</li>
+</ul>
+]]></content>
+      <categories>
+        <category>避坑专栏</category>
+      </categories>
+      <tags>
+        <tag>博客踩坑</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端学习路线</title>
     <url>/2022/07/23/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
     <content><![CDATA[<h1 id="前端学习路线"><a href="#前端学习路线" class="headerlink" title="前端学习路线"></a>前端学习路线</h1><blockquote>
@@ -1165,146 +1205,6 @@
       </tags>
   </entry>
   <entry>
-    <title>博客踩坑初体验</title>
-    <url>/2022/06/18/%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
-    <content><![CDATA[<p>​	大概一年前就有过写个人博客的想法，但是因为各种原因一直没有落实。写博客是一件非常有意思的事情，当时的想法是——可以，但没必要。现在放假有时间了，而且假期有自学安排，也是打算通过写博客的方式来记录和总结自身所学。</p>
-<h3 id="博客的动态和静态之分"><a href="#博客的动态和静态之分" class="headerlink" title="博客的动态和静态之分"></a>博客的动态和静态之分</h3><h4 id="1-1-静态博客"><a href="#1-1-静态博客" class="headerlink" title="1.1 静态博客"></a>1.1 静态博客</h4><p>HTML（超文本标记语言）格式的网页通常被称为静态网页，是直接渲染生成HTML标准的文件呈现给客户端，不需要数据库的支持。静态博客也可以包含文本、声音、图像等。</p>
-<h4 id="1-2-动态博客"><a href="#1-2-动态博客" class="headerlink" title="1.2 动态博客"></a>1.2 动态博客</h4><p>动态是网页通过动态调用再解析而成的，生产的网页不是HTML文件，需要服务器端伪装成HTML文件呈现给客户端。&gt; 这里的<em><strong>动</strong></em>是指与后台数据库的交互，进行数据传递的过程。</p>
-<p><em>我的理解就是，静态的只能展示自己本地上传的东西。动态的可以有用户注册，评论等功能。当然，现在有各种第三方插件支持，静态的博客也可以通过插件做到互动等功能。不过现在静态博客已经够我用作记录和总结的用途了。</em></p>
-<h3 id="踩到的坑"><a href="#踩到的坑" class="headerlink" title="踩到的坑"></a>踩到的坑</h3><h4 id="2-1-Node-js的版本问题"><a href="#2-1-Node-js的版本问题" class="headerlink" title="2.1 Node.js的版本问题"></a>2.1 Node.js的版本问题</h4><p>node.js的版本依赖一直都是个坑。就我目前在各种项目搭建时遇到的坑里面（之前用Vue框架的项目也是），大概三分之一都跟node的版本依赖有关系！！！就是这么绝…… 以至于现在养成一个习惯，搭建过程中遇到看不懂的错误。先去百度一下，看看要求的Node版本（有用到的话），再看看你的版本。或许问题就迎刃而解了~  </p>
-<p>这里推荐下一个NVM（一个Node版本管理工具，可以简单操作Node版本的安装、查看、切换等），有了这个工具，在需要不同的Node版本环境时，就可以随时切换了还是很方便滴👍</p>
-<p>Hexo现在要求的Node是14，我本来的Node是16。版本过高所以不行，然后我又去下了一个10版本的Node。想着这肯定很稳定吧，然而！版本又太低了。还真得精确到个位啊……</p>
-<h4 id="2-2-Hexo-start-4000端口无法访问"><a href="#2-2-Hexo-start-4000端口无法访问" class="headerlink" title="2.2 Hexo start 4000端口无法访问"></a>2.2 Hexo start 4000端口无法访问</h4><p>这个网上一搜有很多原因，主要有</p>
-<ol>
-<li><p>下了福昕PDF阅读器，这个阅读器的默认端口号也是4000。关掉这个进程或者另外给hexo设置一个端口号就行。<em>自定义端口的命令是 hexo server -p 5000</em>（参数自定）</p>
-</li>
-<li><p>服务器的4000端口没有对外开放，参考<a href="https://blog.csdn.net/weixin_59248227/article/details/123776619">(62条消息) 解决hexo在服务器上成功运行后，4000端口无法访问的问题_DO VIS69的博客-CSDN博客_4000端口</a></p>
-</li>
-</ol>
-<h4 id="2-3-git-部署错误"><a href="#2-3-git-部署错误" class="headerlink" title="2.3 git 部署错误"></a>2.3 git 部署错误</h4><p>git  fatal: unable to access ‘<a href="https://github.com/Unique-type/blog.git/&#39;">https://github.com/Unique-type/blog.git/&#39;</a>: OpenSSL SSL_read: Connection was aborted, errno 10053   不能正常访问用git 访问github仓库，原因  服务器SSL证书没有通过 关掉就好</p>
-<p>用指令git config –global http.sslVerify “false”</p>
-<p>参考：(62条消息) Git报错解决：fatal: unable to access ‘<a href="https://github.com/.......%E2%80%98">https://github.com/.......‘</a>: OpenSSL SSL_read: Connection was reset_盏茶作酒的博客-CSDN博客](<a href="https://blog.csdn.net/qq_40999917/article/details/116213557">https://blog.csdn.net/qq_40999917/article/details/116213557</a>)</p>
-<h4 id="2-4-config-yml中的编辑"><a href="#2-4-config-yml中的编辑" class="headerlink" title="2.4  _config.yml中的编辑"></a>2.4  _config.yml中的编辑</h4><p>在进行自定义时，有些是在根目录下的_config.yml中编辑才生效，有些则是在主题目录下的_config.yml中编辑才生效。而且尽量不要两个地方都自定义，很容易发生报错。因为Hexo是可以换主题的，有模块化的思想。比如博客中Subtitles有一个值，要是写到根目录下config中，即使换了一个主题，主题的config也能接收到值。相反，要是只写在主题目录下的config中，换了主题文件过后，值就不见了。</p>
-<h3 id="后期完善"><a href="#后期完善" class="headerlink" title="后期完善"></a>后期完善</h3><p>hexo还有很多个性玩法，可以参考： <a href="https://blog.csdn.net/qq_43827595/article/details/104324443">(62条消息) hexo博客matery主题个性化配置_白马金羁侠少年的博客-CSDN博客_matery</a></p>
-<h3 id="hexo从github上克隆到本地"><a href="#hexo从github上克隆到本地" class="headerlink" title="hexo从github上克隆到本地"></a>hexo从github上克隆到本地</h3><p>如果以后要迁移（保不准哪天就重装系统了）</p>
-<ul>
-<li>安装HEXO，npm install -g hexo-cli</li>
-<li>克隆github上的源文件，git clone ‘仓库地址’</li>
-<li>生成缺少的文件，npm install （因为上传git时有.gitignore，github上没存node_modules等依赖包）<ul>
-<li>npm install hexo-deployer-git –save</li>
-</ul>
-</li>
-<li>生成、部署 hexo g         hexo d</li>
-</ul>
-]]></content>
-      <categories>
-        <category>避坑专栏</category>
-      </categories>
-      <tags>
-        <tag>博客踩坑</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统笔记</title>
-    <url>/2022/10/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h3 id="第二章-进程的控制与描述"><a href="#第二章-进程的控制与描述" class="headerlink" title="第二章 进程的控制与描述"></a>第二章 进程的控制与描述</h3><blockquote>
-<p><strong>重点</strong></p>
-<ol>
-<li><p>掌握什么是进程</p>
-<blockquote>
-<ul>
-<li>进程是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位</li>
-<li>进程由 1。程序段 2。数据段 3。PCB 三部分组成</li>
-<li>PCB是进程存在的唯一标志</li>
-<li>进程的管理者（操作系统）所需要的数据都在PCB中</li>
-</ul>
-<p>进程的特征</p>
-<ol>
-<li>动态性</li>
-<li>并发性</li>
-<li>独立性</li>
-<li>异步性</li>
-<li>结构性</li>
-</ol>
-</blockquote>
-</li>
-<li><p>线程的概念和线程与进程的区别</p>
-</li>
-<li><p>用户态线程和核心态线程的映射模型</p>
-</li>
-</ol>
-<p><strong>难点</strong></p>
-<ol>
-<li><p>进程状态及状态转换</p>
-<blockquote>
-<p>进程有三种基本状态</p>
-<ul>
-<li>运行态，占有CPU，并在CPU上运行</li>
-<li>就绪态，已经具备运行条件，万事俱备，只欠CPU</li>
-<li>阻塞态（又称等待态），因等待某一事件而暂时不能运行</li>
-</ul>
-<p>另外两种叫</p>
-<ul>
-<li>创建态，系统完成创建进程的一系列工作</li>
-<li>终止态</li>
-</ul>
-</blockquote>
-<p><img src="/2022/10/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/image-20221029142810502.png" alt="a"></p>
-</li>
-<li><p>进程如何创建和撤销</p>
-</li>
-</ol>
-</blockquote>
-<h4 id="2-1-前趋图和程序执行"><a href="#2-1-前趋图和程序执行" class="headerlink" title="2.1 前趋图和程序执行"></a>2.1 前趋图和程序执行</h4><p>程序顺序执行和并发执行的特征</p>
-<table>
-<thead>
-<tr>
-<th align="center">顺序</th>
-<th align="center">并发</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1顺序性</td>
-<td align="center">1间断性</td>
-</tr>
-<tr>
-<td align="center">2封闭性</td>
-<td align="center">2失去封闭性</td>
-</tr>
-<tr>
-<td align="center">3可再现性</td>
-<td align="center">3不可再现性</td>
-</tr>
-</tbody></table>
-<h3 id="第三章-处理机调度与死锁"><a href="#第三章-处理机调度与死锁" class="headerlink" title="第三章 处理机调度与死锁"></a>第三章 处理机调度与死锁</h3><blockquote>
-<p><strong>重点</strong></p>
-<ol>
-<li>非抢占式调度和抢占式调度的区别</li>
-<li>各种调度算法的衡量条件</li>
-<li>理解死锁的四个必要条件</li>
-</ol>
-<p><strong>难点</strong></p>
-<ol>
-<li>银行家算法的理解和应用</li>
-<li>掌握抢占式调度算法</li>
-</ol>
-</blockquote>
-<h4 id="3-2调度算法"><a href="#3-2调度算法" class="headerlink" title="3.2调度算法"></a>3.2调度算法</h4><p>一共有七种调度算法</p>
-<p>1. </p>
-<h4 id="3-7死锁避免"><a href="#3-7死锁避免" class="headerlink" title="3.7死锁避免"></a>3.7死锁避免</h4>]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>机器学习笔记</title>
-    <url>/2022/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Beginning</title>
     <url>/2022/06/18/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
     <content><![CDATA[<p>​	现在是大二下学期的暑假，身边有些认识的朋友同学都已经到公司去实习了。而我好像还是依旧没有找到明确方向（😆诶）。思考了几天后，觉得自己现在还是更适合用这个假期来自学吧，实习的话……感觉不太适合目前的状态。争取下次假期就去<br>​	现在主要是先把下学期的课程大概都了解一下，和落实英语学习。实验室前端方向，我的底子还很弱。之前很多基础的东西都是粗略带过，正好下学期有前端的课程，假期预习可以顺便都补下😐</p>
@@ -1556,6 +1456,106 @@
       </categories>
       <tags>
         <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习笔记</title>
+    <url>/2022/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>操作系统笔记</title>
+    <url>/2022/10/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h3 id="第二章-进程的控制与描述"><a href="#第二章-进程的控制与描述" class="headerlink" title="第二章 进程的控制与描述"></a>第二章 进程的控制与描述</h3><blockquote>
+<p><strong>重点</strong></p>
+<ol>
+<li><p>掌握什么是进程</p>
+<blockquote>
+<ul>
+<li>进程是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位</li>
+<li>进程由 1。程序段 2。数据段 3。PCB 三部分组成</li>
+<li>PCB是进程存在的唯一标志</li>
+<li>进程的管理者（操作系统）所需要的数据都在PCB中</li>
+</ul>
+<p>进程的特征</p>
+<ol>
+<li>动态性</li>
+<li>并发性</li>
+<li>独立性</li>
+<li>异步性</li>
+<li>结构性</li>
+</ol>
+</blockquote>
+</li>
+<li><p>线程的概念和线程与进程的区别</p>
+</li>
+<li><p>用户态线程和核心态线程的映射模型</p>
+</li>
+</ol>
+<p><strong>难点</strong></p>
+<ol>
+<li><p>进程状态及状态转换</p>
+<blockquote>
+<p>进程有三种基本状态</p>
+<ul>
+<li>运行态，占有CPU，并在CPU上运行</li>
+<li>就绪态，已经具备运行条件，万事俱备，只欠CPU</li>
+<li>阻塞态（又称等待态），因等待某一事件而暂时不能运行</li>
+</ul>
+<p>另外两种叫</p>
+<ul>
+<li>创建态，系统完成创建进程的一系列工作</li>
+<li>终止态</li>
+</ul>
+</blockquote>
+<p><img src="/2022/10/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/image-20221029142810502.png" alt="a"></p>
+</li>
+<li><p>进程如何创建和撤销</p>
+</li>
+</ol>
+</blockquote>
+<h4 id="2-1-前趋图和程序执行"><a href="#2-1-前趋图和程序执行" class="headerlink" title="2.1 前趋图和程序执行"></a>2.1 前趋图和程序执行</h4><p>程序顺序执行和并发执行的特征</p>
+<table>
+<thead>
+<tr>
+<th align="center">顺序</th>
+<th align="center">并发</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1顺序性</td>
+<td align="center">1间断性</td>
+</tr>
+<tr>
+<td align="center">2封闭性</td>
+<td align="center">2失去封闭性</td>
+</tr>
+<tr>
+<td align="center">3可再现性</td>
+<td align="center">3不可再现性</td>
+</tr>
+</tbody></table>
+<h3 id="第三章-处理机调度与死锁"><a href="#第三章-处理机调度与死锁" class="headerlink" title="第三章 处理机调度与死锁"></a>第三章 处理机调度与死锁</h3><blockquote>
+<p><strong>重点</strong></p>
+<ol>
+<li>非抢占式调度和抢占式调度的区别</li>
+<li>各种调度算法的衡量条件</li>
+<li>理解死锁的四个必要条件</li>
+</ol>
+<p><strong>难点</strong></p>
+<ol>
+<li>银行家算法的理解和应用</li>
+<li>掌握抢占式调度算法</li>
+</ol>
+</blockquote>
+<h4 id="3-2调度算法"><a href="#3-2调度算法" class="headerlink" title="3.2调度算法"></a>3.2调度算法</h4><p>一共有七种调度算法</p>
+<p>1. </p>
+<h4 id="3-7死锁避免"><a href="#3-7死锁避免" class="headerlink" title="3.7死锁避免"></a>3.7死锁避免</h4>]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>操作系统</tag>
       </tags>
   </entry>
 </search>
