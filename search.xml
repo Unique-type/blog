@@ -1558,4 +1558,13 @@
         <tag>日志</tag>
       </tags>
   </entry>
+  <entry>
+    <title>图片测试</title>
+    <url>/2022/10/30/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p><img src="/2022/10/30/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/a.png" alt="a"></p>
+]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
 </search>
