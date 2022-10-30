@@ -1249,7 +1249,7 @@
 <li>终止态</li>
 </ul>
 </blockquote>
-<p><img src="/2022/10/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/blog\source\images\image-20221029142810502.png" alt="image-20221029142810502"></p>
+<p><img src="/2022/10/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/image-20221029142810502.png" alt="a"></p>
 </li>
 <li><p>进程如何创建和撤销</p>
 </li>
@@ -1297,6 +1297,23 @@
       </categories>
       <tags>
         <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习笔记</title>
+    <url>/2022/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Beginning</title>
+    <url>/2022/06/18/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>​	现在是大二下学期的暑假，身边有些认识的朋友同学都已经到公司去实习了。而我好像还是依旧没有找到明确方向（😆诶）。思考了几天后，觉得自己现在还是更适合用这个假期来自学吧，实习的话……感觉不太适合目前的状态。争取下次假期就去<br>​	现在主要是先把下学期的课程大概都了解一下，和落实英语学习。实验室前端方向，我的底子还很弱。之前很多基础的东西都是粗略带过，正好下学期有前端的课程，假期预习可以顺便都补下😐</p>
+]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>日志</tag>
       </tags>
   </entry>
   <entry>
@@ -1539,32 +1556,6 @@
       </categories>
       <tags>
         <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>机器学习笔记</title>
-    <url>/2022/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Beginning</title>
-    <url>/2022/06/18/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>​	现在是大二下学期的暑假，身边有些认识的朋友同学都已经到公司去实习了。而我好像还是依旧没有找到明确方向（😆诶）。思考了几天后，觉得自己现在还是更适合用这个假期来自学吧，实习的话……感觉不太适合目前的状态。争取下次假期就去<br>​	现在主要是先把下学期的课程大概都了解一下，和落实英语学习。实验室前端方向，我的底子还很弱。之前很多基础的东西都是粗略带过，正好下学期有前端的课程，假期预习可以顺便都补下😐</p>
-]]></content>
-      <categories>
-        <category>日志</category>
-      </categories>
-      <tags>
-        <tag>日志</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图片测试</title>
-    <url>/2022/10/30/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<p><img src="/2022/10/30/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/a.png" alt="a"></p>
-]]></content>
-      <tags>
-        <tag>测试</tag>
       </tags>
   </entry>
 </search>
