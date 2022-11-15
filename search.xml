@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JS小记</title>
+    <url>/2022/11/15/JS%E5%B0%8F%E8%AE%B0/</url>
+    <content><![CDATA[<h4 id="SetTimeout方法的第一个参数是否加双引号"><a href="#SetTimeout方法的第一个参数是否加双引号" class="headerlink" title="SetTimeout方法的第一个参数是否加双引号"></a>SetTimeout方法的第一个参数是否加双引号</h4><ol>
+<li>setTimeout(“global()”,1000); 传递的是global()方法，该方法在全局变量中去找</li>
+<li>setTimeout(global,1000); 传递的是global函数名， 该方法在局部变量中去找</li>
+</ol>
+<p>是否加双引号由调用的函数的作用域决定</p>
+]]></content>
+      <tags>
+        <tag>小记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2022/10/30/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -1205,35 +1218,6 @@
       </tags>
   </entry>
   <entry>
-    <title>机器学习笔记</title>
-    <url>/2022/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h3 id="机器学习笔记"><a href="#机器学习笔记" class="headerlink" title="机器学习笔记"></a>机器学习笔记</h3><p>机器学习流程：</p>
-<ol>
-<li>数据获取</li>
-<li>特征工程 <ul>
-<li>数据特征决定了模型的上限</li>
-<li>预处理和特征提起是最核心的</li>
-<li>算法和参数选择决定了如何逼近这个上限</li>
-</ul>
-</li>
-<li>建立模型</li>
-<li>评估与应用</li>
-</ol>
-<h4 id="神经网络基础"><a href="#神经网络基础" class="headerlink" title="神经网络基础"></a>神经网络基础</h4><ul>
-<li>过拟合：训练误差与测试误差之间的差距太大（过于追求训练误差的减小）</li>
-<li>欠拟合：模型不能在训练集上获得足够低的误差</li>
-</ul>
-<p>前向传播</p>
-<p>反向传播</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>操作系统笔记</title>
     <url>/2022/10/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h3 id="第二章-进程的控制与描述"><a href="#第二章-进程的控制与描述" class="headerlink" title="第二章 进程的控制与描述"></a>第二章 进程的控制与描述</h3><blockquote>
@@ -1395,6 +1379,35 @@
       </categories>
       <tags>
         <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习笔记</title>
+    <url>/2022/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h3 id="机器学习笔记"><a href="#机器学习笔记" class="headerlink" title="机器学习笔记"></a>机器学习笔记</h3><p>机器学习流程：</p>
+<ol>
+<li>数据获取</li>
+<li>特征工程 <ul>
+<li>数据特征决定了模型的上限</li>
+<li>预处理和特征提起是最核心的</li>
+<li>算法和参数选择决定了如何逼近这个上限</li>
+</ul>
+</li>
+<li>建立模型</li>
+<li>评估与应用</li>
+</ol>
+<h4 id="神经网络基础"><a href="#神经网络基础" class="headerlink" title="神经网络基础"></a>神经网络基础</h4><ul>
+<li>过拟合：训练误差与测试误差之间的差距太大（过于追求训练误差的减小）</li>
+<li>欠拟合：模型不能在训练集上获得足够低的误差</li>
+</ul>
+<p>前向传播</p>
+<p>反向传播</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
